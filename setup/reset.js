@@ -1,7 +1,11 @@
 require('dotenv').config({ path: __dirname + '/../.env' });
 
 const mongoose = require('mongoose');
-mongoose.connect(process.env.DATABASE);
+mongoose.connect(process.env.DATABASE, {
+  dbName: "admin",
+  user: process.env.DATABASE_USER,
+  pass: process.env.DATABASE_PASS
+});;
 mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
 
 async function deleteData() {
