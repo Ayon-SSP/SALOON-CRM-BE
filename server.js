@@ -15,12 +15,11 @@ require('dotenv').config({ path: '.env.local' });
 // Connect to our Database and handle any bad connections
 // mongoose.connect(process.env.DATABASE);
 
-
 mongoose.connect(process.env.DATABASE, {
-  dbName: "admin",
   user: process.env.DATABASE_USER,
-  pass: process.env.DATABASE_PASS
+  pass: process.env.DATABASE_PASS,
 });
+
 mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
 mongoose.connection.on('error', (error) => {
   console.log(
@@ -37,7 +36,7 @@ glob.sync('./models/**/*.js').forEach(function (file) {
 });
 
 // Start our app!
-const app = require('.');
+const app = require('./app');
 app.set('port', process.env.PORT || 8888);
 const server = app.listen(app.get('port'), () => {
   console.log(`Express running → On PORT : ${server.address().port}`);
