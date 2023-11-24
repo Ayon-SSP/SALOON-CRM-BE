@@ -9,3 +9,5 @@ notes.md
 .env
 *.pdf
 .vercel
+.pnpm-store
+db

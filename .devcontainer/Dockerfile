@@ -1,0 +1,1 @@
+FROM saicharankandukuri/devconatiner-nodexmongo:latest
