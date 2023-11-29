@@ -31,7 +31,6 @@ const sendMail = async (req, res) => {
     await custom.generatePdf( 'Invoice', { filename: 'invoice', format: 'A4' }, result,
         async (fileLocation) => {
           // Send the mail using the details gotten from the client
-          console.log(email);
           const { id: mailId } = await sendViaApi(email, managerName, fileLocation);
 
           // Update the status to sent if mail was successfull
