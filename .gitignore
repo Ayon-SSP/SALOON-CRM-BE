@@ -11,3 +11,6 @@ notes.md
 .vercel
 .pnpm-store
 db
+
+codeql*
+.vscode

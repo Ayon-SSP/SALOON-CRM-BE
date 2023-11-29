@@ -28,11 +28,7 @@ const sendMail = async (req, res) => {
     const { client } = result;
     const { email, managerName } = await ClientModel.findById(client).exec();
 
-    await custom
-      .generatePdf(
-        'Invoice',
-        { filename: 'invoice', format: 'A4' },
-        result,
+    await custom.generatePdf( 'Invoice', { filename: 'invoice', format: 'A4' }, result,
         async (fileLocation) => {
           // Send the mail using the details gotten from the client
           const { id: mailId } = await sendViaApi(email, managerName, fileLocation);
@@ -98,7 +94,7 @@ const sendViaApi = async (email, name, filePath) => {
 
   // Send the mail using the send method
   const data = await resend.emails.send({
-    from: 'Idurar@onfranciis.dev',
+    from: 'CRM INVOICE <no-reply-qwit-crmtest01@quantumwaveit.in>',
     to: email,
     subject: 'Invoice From Idurar',
     attachments: [
