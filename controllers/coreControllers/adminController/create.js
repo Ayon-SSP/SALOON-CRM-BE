@@ -30,7 +30,7 @@ const create = async (req, res) => {
     var newAdmin = new Admin();
     const passwordHash = newAdmin.generateHash(password);
     req.body.password = passwordHash;
-    req.body.role = 'staff';
+    // req.body.role = 'staff'; [ NOTE: Introduced in source to hard staff for every new user ]
 
     const result = await new Admin(req.body).save();
     if (!result) {
