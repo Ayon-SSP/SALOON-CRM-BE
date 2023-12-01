@@ -10,17 +10,33 @@ const supplierSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
-  company: {
+  // company: {
+  //   type: String,
+  //   trim: true,
+  //   required: true,
+  // },
+  // managerName: {
+  //   type: String,
+  //   trim: true,
+  //   required: true,
+  // },
+  // managerSurname: {
+  //   type: String,
+  //   trim: true,
+  //   required: true,
+  // },
+  customerName: {
+    type: String,
+    trim: true,
+    unique: true,
+    required: true,
+  },
+  customerFirstName: {
     type: String,
     trim: true,
     required: true,
   },
-  managerName: {
-    type: String,
-    trim: true,
-    required: true,
-  },
-  managerSurname: {
+  customerSurname: {
     type: String,
     trim: true,
     required: true,

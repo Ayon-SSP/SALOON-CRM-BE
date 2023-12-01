@@ -26,12 +26,16 @@ const sendMail = async (req, res) => {
 
     // Continue process if result is returned
     const { client } = result;
-    const { email, managerName } = await ClientModel.findById(client).exec();
+    const { email, customerName } = await ClientModel.findById(client).exec();
 
-    await custom.generatePdf( 'Invoice', { filename: 'invoice', format: 'A4' }, result,
+    await custom
+      .generatePdf(
+        'Invoice',
+        { filename: 'invoice', format: 'A4' },
+        result,
         async (fileLocation) => {
           // Send the mail using the details gotten from the client
-          const { id: mailId } = await sendViaApi(email, managerName, fileLocation);
+          const { id: mailId } = await sendViaApi(email, customerName, fileLocation);
 
           // Update the status to sent if mail was successfull
           if (mailId) {

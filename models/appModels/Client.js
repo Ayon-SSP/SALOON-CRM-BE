@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
+// CUSTOMER LIST
 const clientSchema = new mongoose.Schema({
   removed: {
     type: Boolean,
@@ -10,38 +11,56 @@ const clientSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
-  company: {
+  // company: {
+  //   type: String,
+  //   trim: true,
+  //   unique: true,
+  //   required: true,
+  // },
+  // managerName: {
+  //   type: String,
+  //   trim: true,
+  //   required: true,
+  // },
+  // managerSurname: {
+  //   type: String,
+  //   trim: true,
+  //   required: true,
+  // },
+
+  customerName: {
     type: String,
     trim: true,
     unique: true,
     required: true,
   },
-  managerName: {
+  customerFirstName: {
     type: String,
     trim: true,
     required: true,
   },
-  managerSurname: {
+  customerSurname: {
     type: String,
     trim: true,
     required: true,
   },
+
   bankAccount: {
     type: String,
     trim: true,
   },
-  companyRegNumber: {
-    type: String,
-    trim: true,
-  },
-  companyTaxNumber: {
-    type: String,
-    trim: true,
-  },
-  companyTaxID: {
-    type: String,
-    trim: true,
-  },
+  // companyRegNumber: {
+  //   type: String,
+  //   trim: true,
+  // },
+  // companyTaxNumber: {
+  //   type: String,
+  //   trim: true,
+  // },
+  // companyTaxID: {
+  //   type: String,
+  //   trim: true,
+  // },
   customField: [
     {
       fieldName: {
