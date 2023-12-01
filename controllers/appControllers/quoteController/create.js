@@ -10,6 +10,7 @@ const create = async (req, res) => {
   try {
     const { items = [], taxRate = 0, discount = 0 } = req.body;
 
+    console.log(req.body)
     // default
     let subTotal = 0;
     let taxTotal = 0;
@@ -24,7 +25,11 @@ const create = async (req, res) => {
       //item total
       item['total'] = total;
     });
-    taxTotal = calculate.multiply(subTotal, taxRate);
+    
+    /*
+      taxTotal = (TaxRate/100)*subTotal
+    */
+    taxTotal = calculate.multiply(subTotal, calculate.divide(taxRate, 100));
     total = calculate.add(subTotal, taxTotal);
 
     let body = req.body;
