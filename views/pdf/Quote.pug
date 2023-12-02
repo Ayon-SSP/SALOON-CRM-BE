@@ -53,7 +53,7 @@ html
       .logo {
         width: 150px;
       }
-      .company-info{
+      .customerName-info{
         text-align: right;
         font-size:8px;
       }
@@ -180,12 +180,12 @@ html
         display: inline-block;
         font-size: 0.8em;
       }
-      .company-invoice {
+      .customerName-invoice {
         float: right;
         text-align: right;
         margin-bottom: 60px;
       }
-      .project-invoice div, .company-invoice div {
+      .project-invoice div, .customerName-invoice div {
         white-space: nowrap;
         margin: 5px auto;
       }
@@ -261,7 +261,7 @@ html
       header.clearfix
         .top-area
           img.logo.left(src=" https://www.idurarweb.com/Theme/idurarweb-theme/assets/img/creation-de-site-web-algerie.png")
-          .right.company-info
+          .right.customerName-info
               p IDURAR WEB Agency
               p Centre d’affaire El-Mountazeh Oran - Algerie
               p RC: 16A5414225 /NIF: 199035050030146 /AI: 31050981441
@@ -285,7 +285,7 @@ html
         .right.col-10
             .billTo
                 p Bill To :
-                p #{model.client.company}
+                p #{model.client.customerName}
                 p address : #{model.client.address}
                 p phone : #{model.client.phone}
                 p Tel : #{model.client.email}
